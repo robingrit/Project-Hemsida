@@ -1,0 +1,77 @@
+@use "../../css/style_settings.scss" as *;
+
+.partners_wrapper {
+    display: grid;
+    grid-template-columns: inherit; // Inherit the grid-template-columns from .App (15% 70% 15%)
+    
+    align-items: center;
+    position: relative;
+
+    grid-column: 1 / 4; 
+    grid-row: 6 / 7;
+
+    grid-template-rows: 0.75fr 1fr;
+
+    background-color: $dark_green;
+    color: $white;
+
+    min-height: 100px;
+}
+
+#partners_text {
+    grid-column: 1 / 4;
+    //grid-row: 1 / 2;
+    display: flex; 
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    h1 {
+        font-size: 60px;
+        font-family: $major_header_font;
+        align-content: center;
+    }
+    //padding-top: 60px;
+}
+.partners_flexbox{
+    display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+#partners_left {
+    width: 60%;
+    h1 {
+        font-size: 60px;
+        font-family: $major_header_font;
+    }
+
+    h2 {
+        font-size: 40px;
+        font-family: $minor_header_font;
+    }
+}
+
+#partners_right {
+    width: 35%;
+    font-family: $text_font;
+    font-size: 25px;
+}
+.scroll-container {
+    grid-column: 1 / 4;
+    overflow-x: auto;  // Allow horizontal scrolling but hide scrollbar
+    white-space: nowrap;
+    padding: 10px;
+    padding-top: 100px;
+    display: flex;
+    align-items: center;
+    scrollbar-width: none;
+    justify-content: center; 
+   
+   
+  }
+.scroll-container img {
+    padding: 10px;
+    height: auto;
+    width: 300px;
+  }

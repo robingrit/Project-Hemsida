@@ -1,0 +1,35 @@
+/// Variables ///
+
+// Base 6 Colors
+$dark_green: #547036;
+$light_green: #cde0a6;
+$brown: #634e42;
+$yellow: #fdc100;
+$beige: #f2edd7;
+$white: #fffcef;
+
+// Fonts
+@font-face {
+    font-family: "MajorHeaderFont";
+    src: url("fonts/Party Confetti.ttf") format("truetype");
+    font-weight: normal;
+    font-style: normal;
+}
+  
+@font-face {
+    font-family: "MinorHeaderFont";
+    src: url("fonts/SaltyKitten-Regular.otf") format("opentype");
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "TextFont";
+    src: url("fonts/AgenorNeue-Regular.otf") format("opentype");
+    font-weight: normal;
+    font-style: normal;
+}
+  
+$major_header_font: "MajorHeaderFont";
+$minor_header_font: "MinorHeaderFont";
+$text_font: "TextFont";

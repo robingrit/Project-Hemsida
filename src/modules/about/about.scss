@@ -1,0 +1,159 @@
+@use "../../css/style_settings.scss" as *;
+
+.about_wrapper {
+    display: grid;
+    grid-template-columns: inherit; // Inherit the grid-template-columns from .App (15% 70% 15%)
+    align-items: center;
+    position: relative;
+    grid-column: 1 / 4; 
+    grid-row: 5 / 6;
+    background-color: $yellow;
+    color: $white;
+    height: 95vh;
+    overflow: hidden; // Ensure content doesn't overflow the container
+    padding-bottom: 20px;
+}
+
+#about_text {
+    grid-column: 2 / 3;
+    grid-row: 1 / 2;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+
+    @media (max-width: 1023px) {
+        flex-direction: column; // Stack text and image on tablet
+    }
+
+    @media (max-width: 768px) {
+        flex-direction: column; // Stack text and image on mobile
+        padding: 0 10px; // Add some padding on mobile
+    }
+}
+
+#about_left {
+    width: 50%;
+    padding-right: 20px; // Space between text and image
+    text-align: left;
+    font-family: $text_font;
+
+    h1 {
+        font-size: 60px;
+        font-family: $major_header_font;
+        color: $white;
+    }
+
+    h2 {
+        font-size: 40px;
+        font-family: $minor_header_font;
+        margin-bottom: 10px;
+    }
+
+    p {
+        font-size: 24px;
+        line-height: 1.6;
+        color: $white;
+        font-family: $text_font;
+    }
+
+    @media (max-width: 768px) {
+        width: 100%;
+        text-align: center; // Center text on mobile
+        padding-right: 0;
+    }
+}
+
+#about_right {
+    width: 45%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    img {
+        width: 100%;
+        height: auto;
+        border-radius: 10px; //  rounded corners 
+        max-height: 50vh;
+        object-fit: contain; // Maintain aspect ratio and cover the available space
+    }
+
+    img:hover {
+        transform: scale(1.05);  // Slight zoom effect on hover
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);  // Add shadow 
+    }
+
+    @media (max-width: 768px) {
+        width: 100%;
+        margin-top: 20px;
+        margin-bottom: 40px; // Add space between text and image on mobile
+    }
+}
+
+#img_group {
+    height: auto;
+    width: 100%;
+}
+
+/* Tablet Styles */
+@media (max-width: 1023px) {
+    .about_wrapper {
+        height: auto; // Let the content dictate the height
+        min-height: 80vh; // Set a minimum height if you still want some spacing
+    }
+    #about_left{
+        padding: 0px;
+        margin-bottom: 40px;
+    }
+    #about_left, #about_right {
+        width: 100%; // Ensure the content doesn't exceed screen width
+        text-align: center; // Center-align text for mobile
+        h1 {
+            font-size: 3rem; // Set heading size for tablets
+        }
+        h2 {
+            font-size: 2rem; // Set subheading size for tablets
+        }
+        p {
+            font-size: 1rem; // Set paragraph size for tablets
+        }
+    }
+}
+
+/* Mobile Styles */
+@media (max-width: 768px) {
+    .about_wrapper {
+        height: auto; // Let the content dictate the height
+        min-height: 80vh; // Maintain the minimum height
+    }
+
+    #about_left, #about_right {
+        width: 100%; // Ensure the content doesn't exceed screen width
+        text-align: center; // Center-align text for mobile
+
+        h1 {
+            font-size: 2.5rem; // Adjusted heading size for mobile
+        }
+        h2 {
+            font-size: 1.5rem; // Adjusted subheading size for mobile
+        }
+        p {
+            font-size: 1rem; // Set paragraph size for mobile
+        }
+    }
+}
+
+/* Very small mobile styles */
+@media (max-width: 480px) {
+    #about_left, #about_right {
+        h1 {
+            font-size: 2rem; // Further reduce heading size for very small screens
+        }
+        h2 {
+            font-size: 1.25rem; // Further reduce subheading size
+        }
+        p {
+            font-size: 0.875rem; // Adjust paragraph size for very small screens
+        }
+    }
+}

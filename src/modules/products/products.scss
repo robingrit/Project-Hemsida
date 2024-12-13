@@ -1,0 +1,169 @@
+@use "../../css/style_settings.scss" as *;
+
+.products_intro_wrapper {
+    display: grid;
+    grid-template-columns: inherit; // Inherit the grid-template-columns from .App (15% 70% 15%)
+    align-items: center;
+    position: relative;
+
+    grid-column: 1 / 4; // Span the entire grid width in .App
+    grid-row: 4 / 5;
+
+    background-color: $dark_green;
+    color: $white;
+
+    // GÖR DETTA SITE-WIDE för alla moduler
+    height: 95vh;
+}
+
+#products_intro_content {
+    grid-column: 2 / 3;
+    grid-row: 1 / 2;
+    display: flex; 
+    flex-direction: row;
+    justify-content: space-between;
+    
+    padding-top: 60px;
+}
+
+#products_intro_left {
+    width: 50%;
+    font-family: $text_font;
+    font-size: 25px;
+
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+#products_intro_img {
+    width: 85%;
+    height: auto;
+    border-radius: 10px;
+}
+
+#products_intro_btn {
+    width: 300px;
+    height: 60px;
+    margin-top: 25px;
+    background-color: $beige;
+    color: $brown;
+    font-family: $text_font;
+    font-size: 30px;
+    border-radius: 5px;
+    border: none;  // Remove default border
+
+    transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s ease; // transition for hover effect
+
+    // Hover effect
+    &:hover {
+        background-color: $brown;  // Darker color on hover
+        color: $white;  // Change text color on hover
+        transform: translateY(-5px);  // Slightly lift the button
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);  // Add a shadow for depth
+        cursor: pointer;
+    }
+}
+
+#products_intro_right {
+    width: 50%;
+    text-align: center;
+    h1 {
+        font-size: 60px;
+        font-family: $major_header_font;
+    }
+
+    h2 {
+        font-size: 40px;
+        font-family: $minor_header_font;
+    }
+
+    p {
+        font-size: 24px;
+        font-family: $text_font;
+        padding-top: 20px;
+    }
+}
+
+/* Mobile Styles */
+@media (max-width: 1023px) {
+    .products_intro_wrapper {
+        height: auto;  // Allow the height to adjust on mobile
+    }
+
+    #products_intro_content {
+        flex-direction: column; 
+        padding-top: 20px; 
+    }
+
+    #products_intro_left, #products_intro_right {
+        width: 100%;  
+        text-align: center;  
+    }
+
+    #products_intro_left {
+        font-size: 1rem;  
+    }
+
+    #products_intro_img {
+        width: 100%;  
+        height: auto;  
+    }
+
+    #products_intro_btn {
+        width: 100%;  
+        font-size: 1.5rem;  // Reduce font size for mobile
+        height: 50px; 
+        margin-bottom: 2rem;
+    }
+
+    #products_intro_right {
+        h1 {
+            font-size: 3rem;  
+        }
+        h2 {
+            font-size: 2rem;  
+        }
+        p {
+            font-size: 1rem; 
+        }
+    }
+}
+
+/* Extra small mobile styles */
+@media (max-width: 768px) {
+    #products_intro_btn {
+        font-size: 1.25rem;  
+        height: 45px;  
+        margin-bottom: 20px;  
+    }
+
+    #products_intro_left {
+        font-size: 0.875rem; 
+    }
+}
+
+/* Very small mobile styles */
+@media (max-width: 480px) {
+    #products_intro_btn {
+        font-size: 1rem;  
+        height: 40px;  
+        margin-bottom: 15px;  
+    }
+    
+    #products_intro_right {
+        h1 {
+            font-size: 2rem;  
+        }
+        
+        h2 {
+            font-size: 1.25rem; 
+        }
+        
+        p {
+            font-size: 0.875rem;  
+        }
+    }
+}

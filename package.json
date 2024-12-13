@@ -1,0 +1,39 @@
+{
+  "name": "egg-site",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
+    "preview": "vite preview",
+    "host": "vite --host",
+    "wipe": "rimraf node_modules dist && npm install",
+    "deploy": "vite build && gh-pages -f -d dist"
+  },
+  "dependencies": {
+    "gh-pages": "^6.1.1",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-player": "^2.16.0",
+    "react-router-dom": "^6.26.2",
+    "reactjs-vimeo-player": "^1.0.4",
+    "rimraf": "^5.0.5",
+    "sass": "^1.72.0"
+  },
+  "devDependencies": {
+    "@svgr/webpack": "^8.1.0",
+    "@types/react": "^18.3.10",
+    "@types/react-dom": "^18.3.0",
+    "@typescript-eslint/eslint-plugin": "^7.1.1",
+    "@typescript-eslint/parser": "^7.1.1",
+    "@vitejs/plugin-react": "^4.3.2",
+    "eslint": "^8.57.0",
+    "eslint-plugin-react-hooks": "^4.6.0",
+    "eslint-plugin-react-refresh": "^0.4.5",
+    "typescript": "^5.6.2",
+    "vite": "^5.1.6",
+    "vite-plugin-svgr": "^4.2.0"
+  }
+}

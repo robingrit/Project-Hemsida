@@ -1,0 +1,191 @@
+@use "../../css/style_settings.scss" as *;
+
+.footer_wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  grid-column: 1 / 4;
+  grid-row: 7 / 8;
+  background-color: $light_green;
+  color: $brown;
+
+  // Styling the "NYFIKEN?" section
+  .footer_inquiry {
+    text-align: center;
+    margin: 20px 0;
+
+    h2 {
+      font-size: 3.5rem;
+      font-family: $major_header_font;
+      color: $dark_green;
+      margin-bottom: 10px;
+    }
+
+    h3 {
+      font-size: 2.5rem;
+      font-family: $minor_header_font;
+      color: $dark_green;
+      font-weight: 400;
+      line-height: 1.4;
+    }
+
+    @media (max-width: 768px) {
+     
+
+      h3 {
+        font-size: 1.2rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      h2 {
+        font-size: 2.5rem;
+      }
+
+      h3 {
+        font-size: 1.2rem;
+      }
+
+    }
+  }
+
+  #footer_logo {
+    padding: 20px;
+    width: 250px;
+  }
+
+  #footer_content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 50%; // Adjust for smaller resolutions in media queries
+  }
+
+  .footer_contact {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 15px 10px;
+
+    img {
+      width: 50px;
+      padding-right: 20px;
+    }
+  }
+
+  #footer_socials {
+    padding: 20px 0 10px;
+  
+    a {
+      padding: 10px 25px;
+    }
+  
+    img {
+      width: 60px;
+    }
+  
+    .social_icon {
+      width: 60px;  // Size of the SVG
+      height: 60px;
+      fill: $dark_green;  // Change this color to the one you prefer
+  
+      transition: fill 0.3s ease, transform 0.3s ease;  // Add transition for hover effects
+    }
+  
+    // Hover effect to change color
+    a:hover .social_icon {
+      fill: $beige;  // Change this color on hover
+      transform: scale(1.1);  // Slightly enlarge on hover
+    }
+  }
+
+  #footer_line {
+    padding: 20px;
+    font-size: 12px;
+    color: $dark_green;
+    font-family: $text_font;
+  }
+
+  .footer {
+    padding: 20px;
+    background-color: $light_green; 
+  }
+
+  .people_wrapper {
+    display: flex; // Change from flexbox to grid 
+    grid-template-columns: repeat(3, 1fr); // 3 equal columns for desktop 
+    gap: 20px; /* Adds gap between items */
+    padding: 20px;
+    //width: 100%; // Ensures full width is used 
+    max-width: 1200px; 
+    margin: 0 auto; 
+  }
+
+  .person_card {
+    background-color: $beige;
+    border-radius: 12px; 
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1); 
+    padding: 30px;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer; // Makes the card interactive 
+  }
+
+  .person_card:hover {
+    transform: translateY(-10px); // Lifts the card on hover 
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15); // shadow on hover 
+  }
+
+  .person_card img {
+    width: 120px; 
+    height: 120px;
+    border-radius: 50%;
+    object-fit: cover; 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); //Adds shadow to image
+    margin-bottom: 15px;
+  }
+
+  .person_card h3 {
+    margin: 15px 0 10px;
+    font-size: 1.4rem;
+    font-family: $minor_header_font;
+    font-weight: 700; 
+    letter-spacing: 0.5px; 
+  }
+
+  .person_card p {
+    font-size: 1rem;
+    line-height: 1.6; 
+    font-family: $text_font;
+  }
+
+  .person_card a {
+    text-decoration: none; 
+    color: inherit; 
+  }
+  
+  .person_card a:hover {
+    text-decoration: underline; 
+    color: $yellow; 
+  }
+  
+  /* Responsive Layouts */
+  @media (max-width: 1023px) {
+    .people_wrapper {
+      grid-template-columns: repeat(2, 1fr); // 2 cards per row on tablets 
+      display: flex;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .people_wrapper {
+      grid-template-columns: repeat(1, 1fr); // 1 card per row on mobile */
+      display: grid;
+    }
+    #footer_content{
+      width: 100%;
+    }
+  }
+}

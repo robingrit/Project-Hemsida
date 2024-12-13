@@ -1,0 +1,223 @@
+@use "../../css/style_settings.scss" as *;
+
+.method-wrapper {
+  display: grid;
+  grid-template-columns: inherit;
+  grid-column: 1 / 4;
+  grid-row: 6 / 7;
+  justify-items: center;
+  align-items: center;
+  background-color: $dark_green;
+  color: $white;
+  height: 95vh; 
+  padding-bottom: 20px;
+}
+
+.method-container {
+  grid-column: 2 / 3;
+  grid-row: 1 / 2;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1200px;
+  width: 100%; 
+}
+.method-left {
+  flex: 1;
+  text-align: center;
+  width: 30%;
+}
+
+#method-img {
+  width: 300px;
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+.method-right {
+  width: 60%;
+  text-align: start;
+
+  h1 {
+    font-family: $major_header_font;
+    font-size: 60px;
+  }
+
+  h2 {
+    font-family: $minor_header_font;
+    font-size: 40px;
+  }
+
+  p {
+    font-family: $text_font;
+    font-size: 22px;
+    padding-top: 15px;
+  }
+}
+
+/* Styling for the custom-numbered list */
+.method-steps {
+  grid-column: 2 / 3;
+  grid-row: 2 / 3;
+  width: 100%;
+  padding: 20px;
+
+  h2 {
+    font-family: $major_header_font;
+    font-size: 36px;
+    text-align: center;
+    margin-bottom: 20px;
+  }
+
+  ol {
+    list-style: none; 
+    padding-left: 0;
+    counter-reset: step-counter; // Initialize custom counter 
+  }
+
+  li {
+    font-size: 20px;
+    font-family: $text_font;
+    margin-bottom: 15px;
+    line-height: 1.6;
+    position: relative;
+    padding-left: 30px; //Indentation for the custom numbers 
+  }
+
+  /* Custom numbering style */
+  li::before {
+    content: counter(step-counter) "."; // Display custom counter
+    counter-increment: step-counter; // Increment custom counter 
+    position: absolute;
+    left: 0;
+    top: 0;
+    font-size: 22px;
+    font-weight: bold;
+    color: $beige; // Custom color for the numbers
+  }
+}
+
+/* Responsive styles for tablets and mobile */
+@media (max-width: 1023px) {
+  .method-wrapper {
+    height: auto;
+  }
+
+  .method-right {
+    width: 60%; 
+    
+    h1 {
+      font-size: 3rem;
+    }
+
+    h2 {
+      font-size: 2rem;
+    }
+
+    p {
+      font-size: 1rem;
+    }
+  }
+
+  .method-left {
+    width: 40%;
+    text-align: center;
+    
+    #method-img {
+      width: 250px; 
+      height: auto;
+      display: block; // Ensure it remains visible 
+    }
+  }
+}
+
+/* Mobile styles */
+@media (max-width: 1023px) {
+  .method-wrapper {
+    height: auto;
+  }
+
+  .method-right {
+    width: 60%; 
+    
+    h1 {
+      font-size: 3rem;
+    }
+
+    h2 {
+      font-size: 2rem;
+    }
+
+    p {
+      font-size: 1rem;
+    }
+  }
+
+  .method-left {
+    width: 40%;
+    text-align: center;
+    
+    #method-img {
+      width: 250px; 
+      height: auto;
+      display: block; 
+    }
+  }
+}
+
+/* Mobile styles */
+@media (max-width: 768px) {
+  .method-container {
+    flex-direction: column; 
+  }
+
+  .method-right {
+    order: 1; // Keep text first 
+    width: 100%; 
+    text-align: center; 
+    margin-top: 20px;
+    h1 {
+      font-size: 2.5rem; 
+    }
+
+    h2 {
+      font-size: 1.5rem;
+    }
+
+    p {
+      font-size: 1rem;
+    }
+  }
+
+  .method-left {
+    order: 2; // Move image below the text */
+    width: 100%; 
+    text-align: center;
+    margin-top: 20px; 
+    
+    #method-img {
+      width: 70%; 
+      max-width: 250px; // Ensure it doesn't exceed the container width 
+      height: auto; 
+      margin: 0 auto;
+      padding: 20px;
+    }
+  }
+
+  .method-steps {
+    padding: 10px;
+    h2 {
+      font-size: 1.5rem;
+    }
+    ol {
+      padding-left: 0;
+    }
+    li {
+      font-size: 1rem;
+    }
+    li::before {
+      font-size: 1.5rem;
+    }
+  }
+}

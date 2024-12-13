@@ -1,0 +1,73 @@
+@use "../../css/style_settings.scss" as *;
+
+#contactWrapper {
+    display: flex;
+    flex-flow: column nowrap;
+
+    justify-content: center;
+    align-items: center;
+
+    width: 100%;
+
+    h1 {
+        padding: 20px;
+    }
+}
+
+#contactAbout {
+    display: flex;
+    flex-flow: row nowrap;
+
+    img {
+        width: 50%;
+        height: auto;
+        object-fit: contain;
+    }
+}
+
+#contactAboutText {
+    width: 50%;
+
+    padding: 20px;
+    margin-left: 20px;
+    border-radius: 25px;
+
+    background-color: rgb(143, 204, 204);
+
+    h3 {
+        margin: 10px 0;
+    }
+
+    p {
+        font-size: 15px;
+    }
+}
+
+#contactMembers {
+    display: flex;
+    flex-flow: column nowrap;
+
+    justify-content: center;
+    align-items: center;
+
+    padding-top: 20px;
+}
+
+#contactMembersContainer {
+    display: flex;
+    flex-flow: row wrap;
+
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+
+    article {
+        padding: 20px 40px;
+    }
+
+    img {
+        width: 150px;
+        max-height: 250px;
+        object-fit: contain;
+    }
+}

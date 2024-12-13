@@ -1,0 +1,33 @@
+@use "../../css/style_settings.scss" as *;
+
+* {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    outline: 0;
+}
+
+body {
+    background-color: $light_green;
+    
+    line-height: 1.5;
+    font-weight: 400;
+
+    min-height: 100vh;
+}
+
+.App {
+    display: grid;
+    grid-template-columns: 15% 70% 15%;
+    grid-template-rows: auto 1fr auto;
+    background-color: $dark_green;
+}
+
+// Tablet breakpoint
+@media (max-width: 1300px) {
+
+    .App {
+        grid-template-columns: 5% 90% 5%;
+    }
+
+}

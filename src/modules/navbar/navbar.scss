@@ -1,0 +1,163 @@
+@use "../../css/style_settings.scss" as *;
+
+.navbar_wrapper {
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    grid-column: 1 / 4;
+    grid-row: 1 / 2;
+    grid-template-columns: 15% 25% 45% 15%;
+    height: 80px;
+    min-width: 100%;
+    font-family: $major_header_font;
+    background-color: $light_green;
+    color: $dark_green;
+
+    #left_container {
+        display: flex;
+        justify-content: flex-start;
+        align-items: center; // Ensure vertical alignment
+        grid-column: 2 / 3;
+        
+
+        img {
+            width: auto; 
+            max-height: 70px; // Ensure the image doesn't overflow the navbar height
+            object-fit: contain; // Ensure the image doesn't get distorted
+        }
+        #brand_name {
+            margin-left: 10px;
+            font-size: 29px;
+            color: $dark_green;
+            font-family: $major_header_font;
+        }
+    }
+
+    #right_container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        grid-column: 3 / 4;
+        min-height: 60px;
+        padding: 0 25px 0 10px;
+        font-size: 20px;
+        text-align: center;
+
+        h2 {
+            display: flex;
+            align-items: center;
+            padding: 0 10px;
+            min-height: inherit;
+        }
+
+        // Hide the links on mobile
+        @media (max-width: 768px) {
+            display: none;
+            position: absolute;
+            top: 80px; // Position below the navbar
+            left: 60px;
+            right: -60px;
+            background-color: $light_green;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            grid-column: 1 / 5; 
+            padding: 20px;
+            z-index: 99;
+        }
+
+        &.open {
+            display: flex; // Show when menu is open
+        }
+    }
+
+    h2:hover {
+        cursor: pointer;
+        color: $white;
+        background-color: $dark_green;
+    }
+
+    #right_container h2 a {
+        color: inherit; // Ensures it inherits the h2 color
+        text-decoration: none;
+    }
+
+    #right_container h2 a:visited {
+        color: inherit; // Ensures the link color remains the same even when visited
+    }
+
+    // Hamburger Icon Styling
+    .hamburger {
+        display: none;
+        cursor: pointer;
+        grid-column: 4 / 4;
+        justify-self: end;
+        margin-right: 20px;
+
+        @media (max-width: 768px) {
+            display: block;
+        }
+
+        span {
+            display: block;
+            width: 25px;
+            height: 3px;
+            background-color: $dark_green;
+            margin: 5px 0;
+            transition: 0.4s;
+        }
+
+        &.open span:nth-child(1) {
+            transform: rotate(-45deg) translate(-5px, 5px);
+        }
+
+        &.open span:nth-child(2) {
+            opacity: 0;
+        }
+
+        &.open span:nth-child(3) {
+            transform: rotate(45deg) translate(-5px, -5px);
+        }
+    }
+}
+@media (max-width: 768px){
+
+    #left_container {
+        
+        grid-column: 1 / 4 !important; 
+}
+
+}
+@media (max-width: 1023px) {
+    #left_container {
+        
+        grid-column: 1 / 3;
+
+        #brand_name {
+
+            font-size: 22px !important;
+
+        }
+}
+.navbar_wrapper #right_container{
+    padding: 0;
+}
+  #right_container{
+    font-size: 14px !important;
+    grid-column: 3 / 3 !important; 
+    
+    h2 {
+        display: flex;
+        align-items: center;
+        padding: 0 10px;
+        min-height: inherit;
+        white-space: nowrap; /* Prevents text from wrapping to the next line */
+        //overflow: hidden; /* Hides overflow text */
+        //text-overflow: ellipsis; 
+        
+      }
+}
+}

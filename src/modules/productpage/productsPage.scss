@@ -1,0 +1,382 @@
+@use "../../css/style_settings.scss" as *;
+
+.products-page {
+  display: grid;
+  grid-template-columns: inherit; // Inherit columns from .App
+  grid-column: 1/-1;
+}
+
+.hero-section {
+  grid-column: 1 / -1; 
+  position: relative;
+  height: 100vh; /* Make the hero section cover the full viewport height */
+  background-image: url('../../assets/Farmerlandscape2.jpg'); /* Replace with your image URL */
+  background-size: cover; /* Ensure the background covers the entire section */
+  background-position: center; /* Center the background image */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: $white; 
+  text-align: center; /* Center align text */
+  padding: 0 20px; 
+}
+
+.hero-content {
+  position: relative;
+  z-index: 1; /* Ensure the content is above the background image */
+}
+
+.hero-section::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5); /* Dark overlay for better text readability */
+  z-index: 0; /* Behind the content */
+}
+
+.hero-section h1 {
+  font-size: 4.5rem; 
+  margin-bottom: 10px;
+  font-family: $major_header_font;
+
+  @media (max-width: 768px) {
+    font-size: 2.5rem; 
+  }
+
+  @media (max-width: 480px) {
+    font-size: 2rem; 
+  }
+}
+
+.hero-section p {
+  font-size: 2rem; 
+  font-family: $minor_header_font;
+  max-width: 800px; 
+  margin: 0 auto; // Center the text 
+
+  @media (max-width: 768px) {
+    font-size: 1.2rem; 
+  }
+
+  @media (max-width: 480px) {
+    font-size: 1rem; 
+  }
+}
+
+.products-categories-wrapper {
+  grid-column: 1/4; // Spans full grid width
+  background-color: $yellow;
+  color: $white;
+  display: grid; 
+  grid-template-columns: 15% 70% 15%; 
+  justify-items: center;
+  text-align: center;
+  padding-top: 30px;
+  padding-bottom: 60px;
+
+  h2 {
+    font-family: $major_header_font;
+    font-size: 40px;
+    grid-column: 1 / -1; // Make the title span across all three columns
+  }
+
+  .products-categories {
+    grid-column: 2 / 3; // Place in the middle column
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-flow: row wrap;
+    width: 100%;
+
+    @media (max-width: 1023px){
+      grid-column: 1/4;
+    }
+  }
+}
+
+#product-category {
+  border: 5px $brown solid;
+  border-radius: 15px;
+  margin: 20px 30px;
+  width: 30%;
+  height: 500px;
+  background-color: $beige;
+  color: $brown;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  @media (max-width: 1023px){
+    width: 40%;
+  }
+
+  @media (max-width: 768px){
+    width: 80%;
+    height: 450px;
+  }
+}
+
+#product-category h3 {
+  font-family: $minor_header_font;
+  font-size: 30px;
+  padding: 5px 0px;
+
+  @media (max-width: 768px){
+    font-size: 25px;
+  }
+}
+
+#product-category img {
+  width: 85%;
+  padding-bottom: 5px;
+  border-radius: 15px;
+}
+
+#product-category p {
+  font-family: $text_font;
+  font-size: 17px;
+  flex-grow: 1; // Allow the text section to grow and take available space 
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  padding: 0 10px; 
+
+  @media (max-width: 768px){
+    font-size: 15px;
+  }
+}
+
+.products_wrapper {
+  grid-template-columns: inherit; // Inherit the grid-template-columns from .App (15% 70% 15%)
+  grid-column: 1 / 4; 
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: $dark_green;
+  color: $white;
+  min-height: 100px;
+  padding: 40px 20px; 
+
+  @media (max-width: 480px) {
+    padding: 20px; 
+  }
+}
+
+
+@keyframes pop-in {
+  0% {
+    transform: translateX(-100%) scale(0.5); // Start from the left and small
+    opacity: 0; // Start hidden 
+  }
+  50% {
+    opacity: 0.5; // Halfway through 
+  }
+  100% {
+    transform: translateX(0) scale(1); // End at normal position and size 
+    opacity: 1; // Fully visible 
+  }
+}
+
+.product-list {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  justify-items: center;
+  max-width: 1200px;
+  width: 100%;
+  
+  // Add animation
+  &.visible {
+    animation: pop-in 1.0s forwards; // Trigger animation when visible
+  }
+
+  @media (max-width: 768px) {
+    grid-template-columns: repeat(2, 1fr); // 2 columns on medium screens
+  }
+
+  @media (max-width: 480px) {
+    grid-template-columns: 1fr; // 1 column on small screens
+  }
+}
+
+
+.product-card > h2 {
+  font-family: $minor_header_font;
+}
+
+.show-more-btn {
+  background-color: $yellow;
+  color: $white;
+  border: none;
+  padding: 10px 20px;
+  margin: 20px 0;
+  cursor: pointer;
+  font-size: 1rem;
+  font-family: $text_font;
+  border-radius: 5px;
+  transition: background-color 0.3s;
+
+  &:hover {
+    background-color: $brown;
+  }
+
+  @media (max-width: 480px) {
+    padding: 8px 16px; 
+    font-size: 0.9rem; 
+  }
+}
+
+.filter-container {
+  display: flex;
+  flex-direction: column; // Stack vertically on mobile 
+  align-items: center; // Center items
+  gap: 10px; // Space between buttons 
+  margin-bottom: 20px; // Space between the filter buttons and product list
+
+  @media (min-width: 481px) {
+    flex-direction: row; 
+    justify-content: center; 
+  }
+}
+
+.filter-button {
+  padding: 10px 20px;
+  background-color: $dark_green;
+  color: $white; 
+  border: none;
+  border-radius: 30px; /* Rounded corners */
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 600;
+  font-family: $minor_header_font;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+
+  &:hover {
+    background-color: $dark_green; // Slightly darker color on hover
+    transform: translateY(-2px); // Lift the button slightly
+  }
+
+  &:active {
+    transform: translateY(0); 
+  }
+
+  &.active {
+    background-color: $yellow; 
+  }
+}
+
+.filter {
+  margin-bottom: 20px;
+
+  select {
+    padding: 10px;
+    font-size: 1rem;
+    border-radius: 5px;
+    border: 1px solid $white;
+
+    @media (max-width: 480px) {
+      width: 100%; 
+    }
+  }
+}
+
+// Responsive adjustments
+/* @media (max-width: 768px) {
+ 
+}
+
+@media (max-width: 480px) {
+  
+} */
+
+.product-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  font-family: $text_font;
+  justify-content: center;
+}
+
+.product-card {
+  border: 1px solid #ccc;
+  padding: 20px;
+  width: 250px; 
+  text-align: center;
+  background-color: $dark_green; 
+  border-radius: 8px; // Rounded corners
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); //  shadow  
+  transition: transform 0.3s, box-shadow 0.3s; // hover effects 
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between; // Align items within the card 
+  
+  
+  &:hover {
+      transform: translateY(-10px); //Lift the card on hover 
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); // Enhance shadow on hover
+  }
+}
+.product-icons {
+  display: flex;
+  gap: 10px; // Space between icons
+
+  .icon-wrapper {
+    display: inline-flex; // Ensure the icon aligns correctl 
+  }
+
+  .product-icon {
+    width: 24px; 
+    height: 24px;
+    fill: currentColor;
+    object-fit: contain; // Ensure the icon fills the inherited color
+  }
+}
+
+.product-card img {
+  width: 100%; 
+  height: 200px; 
+  object-fit: cover; 
+  border-radius: 8px;
+  margin-bottom: 15px;
+}
+
+.product-card h2 {
+  font-size: 1.5rem;
+}
+
+.product-card p {
+  font-size: 1rem;
+}
+
+.product-name {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.product-price {
+  font-size: 1rem;
+  /* color: #4caf50; // Green for the price */
+  margin-bottom: 15px;
+}
+
+.product-description {
+  font-size: 0.9rem;
+  margin-bottom: 20px;
+}
+
+/* Additional Styles for Centering */
+@media (max-width: 768px) {
+  .product-list {
+      justify-content: center; 
+  }
+}

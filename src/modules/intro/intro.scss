@@ -1,0 +1,170 @@
+@use "../../css/style_settings.scss" as *;
+
+.intro_wrapper {
+    display: grid;
+    grid-template-columns: inherit; // Inherit the grid-template-columns from .App (15% 70% 15%)
+    align-items: center;
+    position: relative;
+
+    grid-column: 1 / 4; 
+    grid-row: 3 / 4;
+
+    grid-template-rows: 0.75fr 1fr;
+
+    background-color: $yellow;
+    color: $white;
+
+    min-height: 100px;
+}
+
+#intro_text {
+    grid-column: 2 / 3;
+    grid-row: 1 / 2;
+    display: flex; 
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 60px;
+    padding-top: 60px;
+}
+
+#intro_left {
+    width: 60%;
+    h1 {
+        font-size: 60px;
+        font-family: $major_header_font;
+    }
+
+    h2 {
+        font-size: 40px;
+        font-family: $minor_header_font;
+    }
+}
+
+#intro_right {
+    width: 35%;
+    font-family: $text_font;
+    font-size: 25px;
+}
+
+#intro_video {
+    grid-column: 2 / 3;
+    grid-row: 2 / 3;
+    width: 100%;
+    height: auto; // Ensure the height adjusts based on the width
+    align-self: center;
+    justify-self: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: auto; // Center in the grid cell
+    padding-bottom: 40px;
+
+    iframe {
+        width: 60%; 
+        height: auto; 
+        max-width: 100%; // Make sure it doesn’t overflow its parent
+        max-height: 100%; // Keep height flexible
+        aspect-ratio: 16 / 9; // Maintain 16:9 aspect ratio (if supported)
+    }
+}
+
+/* Mobile Styles */
+@media (max-width: 1023px) {
+    .intro_wrapper {
+      grid-template-rows: auto;  
+      min-height: auto; 
+    }
+  
+    #intro_text {
+      flex-direction: column;  
+      padding: 20px 0;  
+    }
+  
+    #intro_left, #intro_right {
+      width: 100%;  
+      text-align: center;
+    }
+  
+    #intro_left {
+      h1 {
+        font-size: 3rem;  
+      }
+  
+      h2 {
+        font-size: 2rem;  
+      }
+    }
+  
+    #intro_right {
+      p {
+        font-size: 1rem; 
+      }
+    }
+  
+    #intro_video iframe {
+      width: 100%;  
+    }
+  }
+  
+  /* Mobile styles */
+  @media (max-width: 768px) {
+    .intro_wrapper {
+      grid-template-rows: auto;  
+      min-height: auto;  
+    }
+  
+    #intro_text {
+      flex-direction: column;  // Stack the text vertically
+      padding: 20px 0;  
+    }
+  
+    #intro_left, #intro_right {
+      width: 100%;  // Make both sections take full width
+      text-align: center;
+    }
+  
+    #intro_left {
+      h1 {
+        font-size: 2.5rem;  
+      }
+  
+      h2 {
+        font-size: 1.5rem;  
+      }
+    }
+  
+    #intro_right {
+      p {
+        font-size: 1rem;  
+      }
+    }
+  
+    #intro_video iframe {
+      width: 100%;  
+      aspect-ratio: 16 / 9;  
+    }
+  }
+  
+  /* Extra small mobile styles */
+  @media (max-width: 480px) {
+    #intro_left h1 {
+      font-size: 2rem;  
+    }
+  
+    #intro_left h2 {
+      font-size: 1.3rem;  
+    }
+  
+    #intro_right {
+      p {
+        font-size: 0.875rem;  
+      }
+    }
+  
+    #intro_video iframe {
+      width: 100%;  
+      aspect-ratio: 16 / 9;  
+    }
+  }
+  
